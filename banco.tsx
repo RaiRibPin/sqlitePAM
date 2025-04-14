@@ -27,12 +27,15 @@ const Banco = () =>{
     async function inserirDados () {
         try{
             let db = await criaDatabase();
-            await db.execAsync(`PRAGMA journal_mode = WAL;
-                CREATE TABLE IF NOT EXISTS tb_usuario (id INTEGER PRIMARY KEY NOT NULL, nome TEXT NOT NULL);`);
-                console.log('Tabela criada');
+            await db.execAsync(`INSERT INTO tb_usuario (nome) VALUES ("Raíssa");
+                INSERT INTO tb_usuario (nome) VALUES ("Guilherme");
+                INSERT INTO tb_usuario (nome) VALUES ("Victor");`);
+                console.log('Dados inseridos');
         } catch(error) {
-            console.log('Erro ao criar tabela', error);
+            console.log('Erro ao inserir dados', error);
         }
+    }
+    async function visualizarDados () {
     }
     return(
         <View>
